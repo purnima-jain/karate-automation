@@ -25,11 +25,11 @@ function fn() {
 	}
 	
 	// skip SSL certificate verification globally
-    karate.configure('ssl', true);
+	karate.configure('ssl', true);
     
-    // Configuring timeouts
-    karate.configure('connectTimeout', 60000);
-    karate.configure('readTimeout', 60000);
+	// Configuring timeouts
+	karate.configure('connectTimeout', 60000);
+	karate.configure('readTimeout', 60000);
 	
 	config.customerToken = karate.callSingle('classpath:com/purnima/jain/helpers/CreateTokenViaApi.feature', config).authToken
 	
