@@ -24,7 +24,16 @@ function fn() {
 		config.password = 'syst_password_1'
 	}
 	
-	config.token = karate.callSingle('classpath:com/purnima/jain/helpers/CreateToken.feature', config).authToken
+	// skip SSL certificate verification globally
+    karate.configure('ssl', true);
+    
+    // Configuring timeouts
+    karate.configure('connectTimeout', 60000);
+    karate.configure('readTimeout', 60000);
+	
+	config.customerToken = karate.callSingle('classpath:com/purnima/jain/helpers/CreateTokenViaApi.feature', config).authToken
+	
+	config.bookToken = karate.callSingle('classpath:com/purnima/jain/helpers/CreateTokenViaLibrary.feature', config).authToken
 	
 	return config;
 }

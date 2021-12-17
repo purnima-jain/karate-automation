@@ -1,4 +1,4 @@
-Feature: Create Token
+Feature: Create Token via API
 
 	Scenario: Create Token Via API
 		Given url apiTokenBaseUrl + '/createTokenViaApi'

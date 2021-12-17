@@ -117,7 +117,20 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:8080/api/v1/customers/73275",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"73275"
+					]
+				}
 			},
 			"response": []
 		},
@@ -183,6 +196,36 @@
 						"v1",
 						"customers",
 						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create-Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"War and Peace\",\r\n    \"author\": \"Leo Tolstoy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"books"
 					]
 				}
 			},

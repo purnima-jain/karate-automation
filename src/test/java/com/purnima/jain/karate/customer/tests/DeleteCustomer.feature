@@ -15,7 +15,7 @@ Feature: Customer DELETE API Tests
   
   Scenario: Create & then Delete a Customer
     # Create a Customer
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     And request {"firstName": "Jane", "lastName": "Doe"}
@@ -32,7 +32,7 @@ Feature: Customer DELETE API Tests
     Then status 200
     And match response.customerId == customerId
     # Delete the newly created Customer
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl + '/' + customerId
     When method Delete
     Then status 200

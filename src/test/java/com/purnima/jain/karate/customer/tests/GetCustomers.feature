@@ -71,7 +71,7 @@ Feature: Customer GET API Tests
 
   Scenario: Create a Customer and retrieve that Customer By Id
     # Create a new Customer
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     And request {"firstName": "John", "lastName": "Doe"}

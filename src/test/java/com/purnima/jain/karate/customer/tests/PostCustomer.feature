@@ -15,7 +15,7 @@ Feature: Customer POST API Tests
 
 
   Scenario: Create a new Customer
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     And request {"firstName": "John", "lastName": "Doe"}
@@ -29,7 +29,7 @@ Feature: Customer POST API Tests
   Scenario: Create a new Customer using Embedded & Multi-Line Expression
     # Embedded Data
     Given def userData = {"firstName": "John", "lastName": "Doe"}
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     # Multi-Line Expression
@@ -48,7 +48,7 @@ Feature: Customer POST API Tests
   Scenario: Create a new Customer using Java Data-Generator	(static method)
     * def randomFirstName = dataGenerator.getRandomFirstName()
     * def randomLastName = dataGenerator.getRandomLastName()
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     And request
@@ -93,7 +93,7 @@ Feature: Customer POST API Tests
       """
     * def randomLastName = call jsGetRandomLastNameFunction
     # Call API
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     And request
@@ -142,7 +142,7 @@ Feature: Customer POST API Tests
 
 
   Scenario: Create a new Customer by reading Json Payload from file
-    Given header Authorization = 'Token ' + token
+    Given header Authorization = 'Token ' + customerToken
     Given url apiCustomerBaseUrl
     * print apiCustomerBaseUrl
     * def createCustomerRequestBodyFromFile = read('classpath:com/purnima/jain/karate/customer/json/CreateCustomer.json')
